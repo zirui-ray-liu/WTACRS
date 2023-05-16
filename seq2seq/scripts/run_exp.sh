@@ -21,7 +21,7 @@ for dataset in ${dataset_buf[@]}
 do
     for seed in ${seed_buf[@]}
     do
-    bash scripts/approx_linear_roberta.sh 1 $dataset $model $level $sample_ratio $seed
+    bash scripts/approx_linear_bert.sh 1 $dataset $model $level $sample_ratio $seed
     # bash scripts/lora_approx_linear.sh 0 $dataset $model $level $sample_ratio $seed
     done
 done

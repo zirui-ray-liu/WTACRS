@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp2.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp3.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp4.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp5.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp6.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline1.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline2.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline3.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline4.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline5.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline6.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_stsb.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/run_glue.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/run_glue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/approx_linear_roberta.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/baseline_roberta.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/env_approx_lora_roberta_base copy.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/env_approx_roberta_base.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/env_baseline_roberta.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/lora_approx_linear_roberta.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,10 +25,39 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="536">
-                <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <first_editor relative-caret-position="288">
+                <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="79" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../FT_ApproxMatmul/seq2seq/run_glue.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-811">
+              <folding>
+                <element signature="e#834#848#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +66,8 @@
         <entry file="file://$PROJECT_DIR$/../../../division_channel_quant/division_github/division/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="242">
-                <caret line="98" selection-start-line="98" selection-end-line="100" selection-end-column="6" />
+              <first_editor relative-caret-position="48">
+                <caret line="25" column="13" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="13" />
               </first_editor>
               <second_editor />
             </state>
@@ -50,12 +76,18 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>bert</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -155,11 +187,34 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../FT_ApproxMatmul/seq2seq/run_glue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-811">
+          <folding>
+            <element signature="e#834#848#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="79" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../division_channel_quant/division_github/division/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="242">
-            <caret line="98" selection-start-line="98" selection-end-line="100" selection-end-column="6" />
+          <first_editor relative-caret-position="48">
+            <caret line="25" column="13" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="13" />
           </first_editor>
           <second_editor />
         </state>
@@ -168,8 +223,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="536">
-            <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <first_editor relative-caret-position="288">
+            <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           </first_editor>
           <second_editor />
         </state>

@@ -23,7 +23,7 @@ exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}_LoRA
 config_file_name=configs/lora.json
 update_file_name=configs/approx_linear/approx_linear_${exp_tag}.json
 
-source scripts/env_lora_approx_roberta_base.sh
+source scripts/env_lora_approx_bert.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
 
@@ -35,13 +35,17 @@ python scripts/update_scripts_for_given_input.py $update_file_name eval_dataset_
 python scripts/update_scripts_for_given_input.py $update_file_name test_dataset_name str $dataset $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name split_validation_test bool false $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name pad_to_max_length bool true $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name metric_for_best_model str ${metric_for_best_model[$dataset]} $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name load_best_model_at_end bool true $update_file_name
 
 # Hyper-parameter for Training
 python scripts/update_scripts_for_given_input.py $update_file_name model_name_or_path str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name tokenizer_name str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name learning_rate float ${lr[$dataset]} $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name  #
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int ${batch_size[$dataset]} $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name warmup_steps int 0 $update_file_name
 
 python scripts/update_scripts_for_given_input.py $update_file_name task_adapter_layers_encoder eval None $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name trainable_encoder_layers eval None $update_file_name
@@ -61,8 +65,6 @@ python scripts/update_scripts_for_given_input.py $update_file_name wo_sampling i
 python scripts/update_scripts_for_given_input.py $update_file_name q_sampling    int 1 $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name k_sampling    int 1 $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name v_sampling    int 1 $update_file_name
-# python scripts/update_scripts_for_given_input.py $update_file_name score_sampling   int 0 $update_file_name
-# python scripts/update_scripts_for_given_input.py $update_file_name attout_sampling   int 0 $update_file_name
 
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
