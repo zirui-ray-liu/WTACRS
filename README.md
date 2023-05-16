@@ -2,6 +2,11 @@ This is the official codes for RANG: Trading Randomness for Efficient and Scalab
 
 **FOR REVIEW ONLY, DO NOT DISTRIBUTE**
 
+# Setup 
+```bash
+pip sinstall -v -e .
+```
+
 # Run experiments
 TODO
 
