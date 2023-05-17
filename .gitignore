@@ -1,7 +1,6 @@
 build
 __pycache__
 all_output_logs
-figure
 old
 outputs
 plot

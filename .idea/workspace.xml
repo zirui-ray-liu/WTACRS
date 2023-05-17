@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" afterDir="false" />
-    </list>
+    <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
