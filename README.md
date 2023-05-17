@@ -1,5 +1,4 @@
-This is the official codes for RANG: Trading Randomness for Efficient and Scalable Graph Neural Networks Training.
-
+This is the official codes for Winner-Take-All Column Row Sampling for Memory Efficient Adaptation of Language Model.
 **FOR REVIEW ONLY, DO NOT DISTRIBUTE**
 
 # Dependency
