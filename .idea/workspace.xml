@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/glue_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/glue_trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/other version/2/functional.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/other version/2/functional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/other version/functional_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/other version/functional_c.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/lora/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/lora/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/mem_tests/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/mem_tests/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/mem_tests/test_speed.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/mem_tests/test_speed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/model_convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/model_convert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/run_seq2seq.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/run_seq2seq.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/run_seq2seq_roberta.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/roberta/modeling_roberta.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/roberta/modeling_roberta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/t5/modeling_t5_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/t5/modeling_t5_b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/trainers/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/trainers/trainer.py" afterDir="false" />
-    </list>
+    <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +14,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="96">
-                <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <first_editor relative-caret-position="264">
+                <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -50,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="336">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -188,8 +172,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="96">
-            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <first_editor relative-caret-position="264">
+            <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
@@ -204,8 +188,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="35" />
+        <state relative-caret-position="336">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
