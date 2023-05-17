@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="192">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -229,8 +228,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="192">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
