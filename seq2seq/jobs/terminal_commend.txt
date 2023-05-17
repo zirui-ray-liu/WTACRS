@@ -1,2 +1,0 @@
-
-# srun -A vxc204_aisc -p aisc -c 16 --mem=256gb --gpus=1 --time=48:00:00 --pty /bin/bash
