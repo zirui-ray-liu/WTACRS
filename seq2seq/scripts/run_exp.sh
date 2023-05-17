@@ -5,7 +5,7 @@ model="t5-base"
 # model="t5-large"
 # model="bert-large-cased"
 seed_buf=(0 1 2)
-dataset_buf=(rte" "mrpc" "stsb" "cola" "sst2" "qnli" "qqp" "mnli")
+dataset_buf=("rte" "mrpc" "stsb" "cola" "sst2" "qnli" "qqp" "mnli")
 
 for seed in ${seed_buf[@]}
 do

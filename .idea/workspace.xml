@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline1.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -46,8 +46,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" />
         <option value="$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh" />
+        <option value="$PROJECT_DIR$/seq2seq/scripts/run_exp.sh" />
       </list>
     </option>
   </component>
@@ -220,17 +220,17 @@
     <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline1.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp_baseline.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seq2seq/scripts/run_exp.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
