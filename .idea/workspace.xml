@@ -4,6 +4,19 @@
     <list default="true" id="b7037c8a-9639-4796-9a0a-747288fcbbd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/glue_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/glue_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/other version/2/functional.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/other version/2/functional.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/approxlinear/other version/functional_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/approxlinear/other version/functional_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/lora/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/lora/controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/mem_tests/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/mem_tests/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/mem_tests/test_speed.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/mem_tests/test_speed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/model_convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/model_convert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/run_seq2seq.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/run_seq2seq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/run_seq2seq_roberta.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/roberta/modeling_roberta.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/roberta/modeling_roberta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/models/t5/modeling_t5_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/models/t5/modeling_t5_b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seq2seq/third_party/trainers/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/seq2seq/third_party/trainers/trainer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +30,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="272">
-                <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+              <first_editor relative-caret-position="96">
+                <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -54,23 +67,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../division_channel_quant/division_github/division/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="600">
-                <caret line="25" column="13" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="13" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>bert</find>
+      <find>hegsns</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,20 +100,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="WTACRS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WTACRS" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -179,11 +168,28 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../division_channel_quant/division_github/division/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="600">
+            <caret line="25" column="13" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seq2seq/mem_tests/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="272">
-            <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <first_editor relative-caret-position="96">
+            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           </first_editor>
           <second_editor />
         </state>
@@ -209,16 +215,6 @@
           <folding>
             <element signature="e#834#848#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../division_channel_quant/division_github/division/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="600">
-            <caret line="25" column="13" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>

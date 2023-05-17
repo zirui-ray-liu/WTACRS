@@ -162,9 +162,6 @@ def attention_mem_profile():
     att_module = T5Attention(config=config, has_relative_attention_bias=False, 
                              adapter_config=None, lora_config=None, approx_config=None)
 
-    print(att_module)
-    hegsns
-
 
     att_module.train()
     approx_config = ApproxLinearConfig()

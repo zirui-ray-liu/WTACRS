@@ -9,7 +9,7 @@ scikit-learn==0.24.2
 tensorboard==2.5.0 
 matplotlib==3.4.2 
 transformers==4.6.0 
-numpy==1.21.1'
+numpy==1.21.1 
 ```
 
 # Setup 

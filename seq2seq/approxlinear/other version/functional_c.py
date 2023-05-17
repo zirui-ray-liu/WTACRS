@@ -205,8 +205,6 @@ def subsample_4D_B_by_norm(A, B, weight, scheme):
         # # top_k_indices Shape: bh x k
         # # B_top_k_dim Shape: b x h x k x d
 
-        ######### Optimize the deterministic ratio, Guanchu
-
         prob = (norm_mult) / (norm_mult.sum(dim=1).unsqueeze(dim=1))
         top_k_values, _ = topk(prob, k, dim=1, largest=True)
         top_k_values, _ = torch.sort(top_k_values, dim=1, descending=True)

@@ -1,23 +1,15 @@
 
 
-from transformers import RobertaForSequenceClassification, RobertaConfig
+from transformers import BertForSequenceClassification #, RobertaConfig, RobertaTokenizer
 
-def transformer_convert(model, config, model_args, adapter_config=None, lora_config=None, approx_config=None):
+def transformer_convert(model, config, tokenizer, model_args, adapter_config=None, lora_config=None, approx_config=None):
 
     from seq2seq.third_party.models import RobertaConfig as approx_RobertaConfig
-    from seq2seq.third_party.models import RobertaForSequenceClassification as approx_RobertaForSequenceClassification
+    from seq2seq.third_party.models import BertForSequenceClassification as approx_BertForSequenceClassification
 
-    if type(model) == RobertaForSequenceClassification:
+    if type(model) == BertForSequenceClassification:
 
-        config_ = approx_RobertaConfig.from_pretrained(
-            model_args.tokenizer_name if model_args.tokenizer_name else model_args.model_name_or_path,
-            cache_dir=model_args.cache_dir,
-            use_fast=model_args.use_fast_tokenizer,
-            revision=model_args.model_revision,
-            use_auth_token=True if model_args.use_auth_token else None,
-        )
-
-        model_ = approx_RobertaForSequenceClassification.from_pretrained(
+        model = approx_BertForSequenceClassification.from_pretrained(
             model_args.model_name_or_path,
             from_tf=bool(".ckpt" in model_args.model_name_or_path),
             config=config,
@@ -29,9 +21,4 @@ def transformer_convert(model, config, model_args, adapter_config=None, lora_con
             approx_config=approx_config,
         )
 
-    else:
-
-        raise NotImplementedError
-
-    del model, config
-    return model_, config_
+    return model, config, tokenizer

@@ -194,7 +194,7 @@ from transformers.trainer import logger
 from transformers import Trainer
 from seq2seq.approxlinear.dataloader import FT_DataLoader as DataLoader
 from seq2seq.approxlinear.scheme import Scheme
-
+from seq2seq.third_party.trainers import BaseTrainer
 
 from torch.utils.data.dataset import Dataset
 # from transformers import Seq2SeqTrainer
@@ -210,7 +210,8 @@ class GLUETrainer(Trainer):
         super().__init__(*args, **kwargs)
         self.adapter_config = adapter_config
         self.train_dataset_sizes = train_dataset_sizes
-        self.args.metric_for_best_model = None
+        # self.args.metric_for_best_model = None
+        # self.load_best_model_at_end = True
 
     def get_train_dataloader(self) -> DataLoader:
         """

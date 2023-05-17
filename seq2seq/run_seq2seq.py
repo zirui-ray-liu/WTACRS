@@ -306,7 +306,7 @@ def main():
 
     # Setup logging
 
-    # handler = logging.FileHandler(os.path.join(training_args.output_dir, "log.txt")) # Added by Guanchu
+    # handler = logging.FileHandler(os.path.join(training_args.output_dir, "log.txt")) #
     # logger.addHandler(handler)
 
     logging.basicConfig(

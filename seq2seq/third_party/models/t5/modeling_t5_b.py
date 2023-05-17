@@ -549,7 +549,6 @@ class T5Attention(nn.Module):
             hidden_states, self.v, key_value_states, past_key_value[1] if past_key_value is not None else None
         )
         # compute scores
-        # NOTE for Guanchu: check the impact of approx_matmul at L551. Please exchange L551 & L552 and check the result change
         scores = self.matmul_op(query_states, key_states.transpose(3, 2))  # equivalent of torch.einsum("bnqd,bnkd->bnqk", query_states, key_states), compatible with onnx op>9
         # scores = torch.matmul(query_states, key_states.transpose(3, 2))
 
@@ -583,7 +582,6 @@ class T5Attention(nn.Module):
         if layer_head_mask is not None:
             attn_weights = attn_weights * layer_head_mask
 
-        # NOTE for Guanchu: check the impact of approx_matmul at L585. Please exchange L585 & L585 and check the result change
         attn_output = unshape(self.matmul_op(attn_weights, value_states))  # (batch_size, seq_length, dim)
         # attn_output = unshape(torch.matmul(attn_weights, value_states))  # (batch_size, seq_length, dim)
         attn_output = self.o(attn_output)

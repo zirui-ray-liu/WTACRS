@@ -57,11 +57,14 @@ class LoRALinearController(nn.Linear, LoRALayer):
                 nn.init.kaiming_uniform_(self.lora_As[task].weight, a=math.sqrt(5))
                 nn.init.zeros_(self.lora_Bs[task].weight)
 
-    def forward(self, x, task):
+    def forward(self, x, task=None):
         def T(w):
             return w.T if self.fan_in_fan_out else w
 
         result = F.linear(x, T(self.weight), bias=self.bias)
+
+        if task is None:
+            task = self.tasks[0]
 
         lora_A = self.lora_As[task]
         lora_B = self.lora_Bs[task]

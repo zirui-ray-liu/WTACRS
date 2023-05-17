@@ -407,13 +407,19 @@ class RobertaIntermediate(nn.Module):
         super().__init__()
         self.dense = nn.Linear(config.hidden_size, config.intermediate_size)
 
-        if approx_config is not None and approx_config.wo_sampling:
-            self.dense = ApproxLinear(config.hidden_size, config.intermediate_size, config=approx_config)
-
         if isinstance(config.hidden_act, str):
             self.intermediate_act_fn = ACT2FN[config.hidden_act]
         else:
             self.intermediate_act_fn = config.hidden_act
+
+
+        if approx_config is not None and approx_config.wo_sampling:
+            self.dense = ApproxLinear(config.hidden_size, config.intermediate_size, config=approx_config)
+
+        if approx_config is not None and config.hidden_act == "relu" and approx_config.quant_relu:
+            self.intermediate_act_fn = QReLU()
+
+
 
     def forward(self, hidden_states):
         hidden_states = self.dense(hidden_states)
@@ -1246,6 +1252,10 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         )
         sequence_output = outputs[0]
         logits = self.classifier(sequence_output)
+
+        # # print(logits)
+        # import pdb
+        # pdb.set_trace()
 
         loss = None
         if labels is not None:
