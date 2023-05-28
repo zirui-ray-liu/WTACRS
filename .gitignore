@@ -5,4 +5,5 @@ old
 outputs
 plot
 runs
-*.so
+seq2seq/approxlinear/other_version
+seq2seq/approxlinear/py_script
