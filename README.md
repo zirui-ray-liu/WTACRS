@@ -45,9 +45,9 @@ done
 ```
 
 
-# Empirical Results
+<!-- # Empirical Results
 
-## Model Accuracy
+<!-- ## Model Accuracy
 <div align=center>
 <img width="650" height="250" src="https://anonymous.4open.science/r/WTACRS-A5C5/seq2seq/figure/acc.png">
 </div>
@@ -62,7 +62,7 @@ done
 <div align=center>
 <img width="650" height="250" src="https://anonymous.4open.science/r/WTACRS-A5C5/seq2seq/figure/speed.png">
 </div>
-
-
+ -->
+ 
 ## Acknowledgment
 Our code is based on the official code of [Ladder Site Tuning](https://arxiv.org/abs/2206.06522)
