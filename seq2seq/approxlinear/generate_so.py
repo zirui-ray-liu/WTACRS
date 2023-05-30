@@ -8,4 +8,4 @@ setup(ext_modules = cythonize(["config.py",
                                "approx_utils.py",
                                "glue_trainer.py",
                                "scheme.py",
-                               ])) 
+                               ]))
