@@ -3,13 +3,13 @@ declare -A lr
 declare -A batch_size
 declare -A metric_for_best_model
 
-num_epochs["rte"]=20
+num_epochs["rte"]=40
 num_epochs["qnli"]=10
 num_epochs["mnli"]=10
 num_epochs["qqp"]=10
-num_epochs["cola"]=20
+num_epochs["cola"]=60
 num_epochs["sst2"]=20
-num_epochs["mrpc"]=10
+num_epochs["mrpc"]=20
 num_epochs["stsb"]=10
 
 lr["rte"]=2e-5

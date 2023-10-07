@@ -1606,7 +1606,6 @@ class BertForSequenceClassification(BertPreTrainedModel):
 
             if self.config.problem_type == "regression":
                 loss_fct = MSELoss()
-                # loss = loss_fct(logits.view(-1, self.num_labels), labels)
                 loss = loss_fct(logits.squeeze(), labels.squeeze())
             elif self.config.problem_type == "single_label_classification":
                 loss_fct = CrossEntropyLoss()

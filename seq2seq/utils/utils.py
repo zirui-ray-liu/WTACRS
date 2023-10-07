@@ -314,11 +314,7 @@ def modify_model_after_init(model, training_args, adapter_args):
         logger.info("Total trainable layernorm params %s", total_trainable_layernorm_params_percent)
         logger.info("Total lm_head params %s", total_trainable_lm_head_params_percent)
 
-        return model, total_trainable_params_percent
-
-    else:
-        return model, None
-
+    return model, total_trainable_params_percent
 
 def save_json(filepath, dictionary):
    with open(filepath, "w") as outfile:

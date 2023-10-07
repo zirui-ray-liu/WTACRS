@@ -9,22 +9,28 @@ if [ ! -d ${folder_name} ] ; then
     mkdir -p ${folder_name}
 fi
 
-echo $1 $2 $3 $4
+echo $1 $2 $3 $4 $5
 
 gpuid=$1
 dataset=$2
 model=$3
 seed=$4
+lora_dim=$5
 
 exp_tag=${dataset}_${model}_LoRA
 
 config_file_name=configs/lora.json
 update_file_name=configs/baseline/lora_baseline_${exp_tag}.json
 
+if [ "$model" = "t5-3b" ];then
+source scripts/env_lora_t53b.sh
+else
 source scripts/env_lora.sh
+fi
+
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 
-lora_dim=32
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
 
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
@@ -39,6 +45,9 @@ python scripts/update_scripts_for_given_input.py $update_file_name tokenizer_nam
 python scripts/update_scripts_for_given_input.py $update_file_name learning_rate float ${lr[$dataset]} $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
+if [ "$model" = "t5-3b" ];then
+    python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int 32 $update_file_name
+fi
 
 python scripts/update_scripts_for_given_input.py $update_file_name task_adapter_layers_encoder eval None $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name trainable_encoder_layers eval None $update_file_name
@@ -51,6 +60,11 @@ python scripts/update_scripts_for_given_input.py $update_file_name lora_dim int 
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
 
-CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py  $update_file_name
+CUDA_VISIBLE_DEVICES=$gpuid accelerate launch --multi_gpu run_seq2seq.py  $update_file_name
+
+
+# python scripts/update_scripts_for_given_input.py $update_file_name evaluation_strategy str "steps" $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name eval_steps int 1 $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name do_train bool false $update_file_name
 
 

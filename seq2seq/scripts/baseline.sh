@@ -13,13 +13,16 @@ dataset=$2
 model=$3
 seed=$4
 
-exp_tag=${dataset}_${model}_fp
+exp_tag=${dataset}_${model}_fp_Gradcheckpoint
 
 config_file_name=configs/baseline.json
 update_file_name=configs/baseline/baseline_${exp_tag}.json
 
-source scripts/env_baseline.sh
+source scripts/env_approx.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
+
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
+
 
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
@@ -35,7 +38,10 @@ python scripts/update_scripts_for_given_input.py $update_file_name learning_rate
 python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
 
+########### For Rebuttal Gradient Checkpoint Experiment
+python scripts/update_scripts_for_given_input.py $update_file_name gradient_checkpointing    bool true $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int 1 $update_file_name
+
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir   str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
-
 CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py  $update_file_name

@@ -21,6 +21,8 @@ update_file_name=configs/baseline/baseline_${exp_tag}.json
 source scripts/env_baseline_bert.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
+
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name eval_dataset_name str $dataset $update_file_name
@@ -34,7 +36,7 @@ python scripts/update_scripts_for_given_input.py $update_file_name load_best_mod
 python scripts/update_scripts_for_given_input.py $update_file_name model_name_or_path str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name tokenizer_name str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name learning_rate float ${lr[$dataset]} $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name # 
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int ${batch_size[$dataset]} $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name warmup_steps int 0 $update_file_name

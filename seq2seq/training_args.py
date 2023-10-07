@@ -144,4 +144,3 @@ class AdapterTrainingArguments:
     quant_dropout: bool = field(default=True, metadata={"help":   ""})
     inplace_layernorm: bool = field(default=True, metadata={"help":   ""})
     level: int = field(default=2, metadata={"help":   "the optimization level."})
-    random_sampling: bool = field(default=False, metadata={"help": ""})

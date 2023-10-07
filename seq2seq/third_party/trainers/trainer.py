@@ -280,7 +280,7 @@ class BaseTrainer(Trainer):
             all_labels = nested_truncate(all_labels, num_samples)
         # Metrics!
         if self.compute_metrics is not None and all_preds is not None and all_labels is not None:
-            metrics = self.compute_metrics(EvalPrediction(predictions=all_preds, label_ids=all_labels,
+            metrics = self.compute_metrics(EvalPrediction(predictions=all_preds, label_ids=all_labels, 
             data_info=self.get_data_info(metric_key_prefix)))
         else:
             metrics = {}
@@ -461,9 +461,7 @@ class BaseTrainer(Trainer):
 
         self.state = TrainerState()
         self.state.is_hyper_param_search = trial is not None
-
-        model = self._wrap_model(self.model_wrapped)
-
+        
         # for the rest of this function `model` is the outside model, whether it was wrapped or not
         if model is not self.model:
             self.model_wrapped = model

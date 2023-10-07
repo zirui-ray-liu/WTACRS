@@ -24,6 +24,8 @@ source scripts/env_approx_bert.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
 
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
+
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name eval_dataset_name str $dataset $update_file_name

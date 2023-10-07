@@ -47,5 +47,5 @@ python scripts/update_scripts_for_given_input.py $update_file_name sampling_rati
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
 
-CUDA_VISIBLE_DEVICES=$1 python run_seq2seq.py  $update_file_name
+CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py  $update_file_name
 

@@ -12,12 +12,12 @@ num_epochs["sst2"]=20
 num_epochs["mrpc"]=20
 num_epochs["stsb"]=40
 
-lr["rte"]=2e-4
+lr["rte"]=3e-4
 lr["qnli"]=2e-4
-lr["mnli"]=3e-4
-lr["qqp"]=3e-4
-lr["cola"]=2e-4
-lr["sst2"]=5e-4
+lr["mnli"]=2e-4
+lr["qqp"]=2e-4
+lr["cola"]=3e-4
+lr["sst2"]=2e-4
 lr["mrpc"]=2e-4
 lr["stsb"]=3e-4
 

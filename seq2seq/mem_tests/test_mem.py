@@ -11,81 +11,14 @@ sys.path.append("../../")
 
 from seq2seq.third_party.models.t5.modeling_t5 import T5Attention, T5Block
 from seq2seq.third_party.models.t5.configuration_t5 import T5Config
-from seq2seq.third_party.models import RobertaConfig
-from seq2seq.third_party.models import RobertaLayer
 from seq2seq.approxlinear import ApproxLinearConfig
-from seq2seq.approxlinear.scheme import Scheme
+from seq2seq.approxlinear.layers import Scheme
 from torch.profiler import profile, record_function, ProfilerActivity
 
 import os
 
 
-def test_Roberta_mem():
-    config = RobertaConfig()
-    with open('./baseline_config.json', 'r') as f:
-        bl_config_dict = json.load(f)
-
-    # load the baseline model config for simulation
-    config.update(bl_config_dict)
-    config.level = 1
-    roberta_layer = RobertaLayer(config=config, lora_config=None, approx_config=None)
-    print(roberta_layer)
-
-    approx_config = ApproxLinearConfig()
-    approx_config.only_bw = True
-    approx_config.sampling_ratio = 0.1
-    approx_config.k_sampling = False
-    approx_config.q_sampling = False
-    approx_config.v_sampling = False
-    approx_config.o_sampling = True
-    approx_config.wi_0_sampling = True
-    approx_config.wi_1_sampling = True
-    approx_config.wo_sampling = True
-    approx_config.score_sampling = True
-    approx_config.attout_sampling = True
-    approx_config.deter_ratio = 0.5
-    approx_config.sample_replacement = True
-    approx_config.inplace_layernorm = True
-    approx_config.random_sampling = False
-    approx_config.softmax_prune_ratio = 0
-    approx_config.quant_dropout = True
-    approx_config.tasks = ["sst2"]
-    roberta_layer_with_approx = RobertaLayer(config=config, lora_config=None, approx_config=approx_config)
-
-    print(roberta_layer_with_approx)
-
-    roberta_layer = roberta_layer.cuda()
-    roberta_layer_with_approx = roberta_layer_with_approx.cuda()
-    # pdb.set_trace()
-    B, L, D = 128, 128, config.d_model
-    print("========== Attention Memory Test ==========")
-
-    for dtype in ['float32']:
-        print(f"test {dtype}...")
-        data_np = np.random.randn(B, L, D).astype(dtype)
-        Scheme.batch = torch.arange(B)
-
-        def test_implementation(func):
-            data = torch.tensor(data_np).to("cuda").requires_grad_()
-            before = get_memory_usage()
-
-            for i in range(12):
-                if isinstance(data, tuple):
-                    data = data[0]
-                data = func(data)
-
-            after = get_memory_usage()
-
-            return after - before
-
-        usage_ref = test_implementation(roberta_layer)
-        print("Exact.     Usage: %.2f MB" % (usage_ref / 2 ** 20))
-        usage_us = test_implementation(roberta_layer_with_approx)
-
-        print("Approx. Usage: %.2f MB" % (usage_us / 2 ** 20))
-
-
-def test_T5_mem():
+def test_attention_mem():
     config = T5Config()
     with open('./baseline_config.json', 'r') as f:
         bl_config_dict = json.load(f)
@@ -196,6 +129,5 @@ if __name__ == "__main__":
     # test_gelu_correctness()
     # test_gelu_memory()
     # attention_mem_profile()
-    os.environ["CUDA_VISIBLE_DEVICES"] = "6"
-    # test_T5_mem()
-    test_Roberta_mem()
+    os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+    test_attention_mem()

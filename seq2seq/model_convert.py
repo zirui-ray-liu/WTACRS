@@ -4,7 +4,6 @@ from transformers import BertForSequenceClassification #, RobertaConfig, Roberta
 
 def transformer_convert(model, config, tokenizer, model_args, adapter_config=None, lora_config=None, approx_config=None):
 
-    from seq2seq.third_party.models import RobertaConfig as approx_RobertaConfig
     from seq2seq.third_party.models import BertForSequenceClassification as approx_BertForSequenceClassification
 
     if type(model) == BertForSequenceClassification:
@@ -20,5 +19,9 @@ def transformer_convert(model, config, tokenizer, model_args, adapter_config=Non
             lora_config=lora_config,
             approx_config=approx_config,
         )
+    
+    print(model)
+    import pdb
+    pdb.set_trace()
 
     return model, config, tokenizer

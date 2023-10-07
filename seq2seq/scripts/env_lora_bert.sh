@@ -5,21 +5,21 @@ declare -A metric_for_best_model
 
 num_epochs["rte"]=20
 num_epochs["qnli"]=20
-num_epochs["mnli"]=20
-num_epochs["qqp"]=20
+num_epochs["mnli"]=10
+num_epochs["qqp"]=10
 num_epochs["cola"]=40
 num_epochs["sst2"]=20
 num_epochs["mrpc"]=20
-num_epochs["stsb"]=20
+num_epochs["stsb"]=10
 
 lr["rte"]=2e-4
 lr["qnli"]=2e-4
 lr["mnli"]=2e-4
 lr["qqp"]=2e-4
-lr["cola"]=2e-4
+lr["cola"]=3e-4
 lr["sst2"]=2e-4
 lr["mrpc"]=2e-4
-lr["stsb"]=3e-4
+lr["stsb"]=2e-4
 
 batch_size["rte"]=128
 batch_size["qnli"]=128

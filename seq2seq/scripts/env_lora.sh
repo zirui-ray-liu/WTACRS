@@ -23,7 +23,7 @@ lr["qnli"]=3e-5
 lr["mnli"]=3e-5
 lr["qqp"]=3e-5
 lr["cola"]=3e-4
-lr["sst2"]=3e-5
+lr["sst2"]=3e-4
 lr["mrpc"]=3e-4
 lr["stsb"]=3e-4
 

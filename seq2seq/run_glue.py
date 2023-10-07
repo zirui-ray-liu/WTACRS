@@ -48,6 +48,7 @@ from seq2seq.approxlinear.glue_trainer import GLUETrainer
 from seq2seq.data import DefaulDataCollator, TaskDataCollatorForSeq2Seq
 from seq2seq.data import AutoTask
 from seq2seq.model_convert import transformer_convert
+from seq2seq.utils import get_adapter_config
 from seq2seq.utils.utils_bert import get_adapter_config
 from seq2seq.utils.utils_bert import modify_model_after_init
 
@@ -374,7 +375,6 @@ def main():
         approx_config.quant_relu = adapter_args.quant_relu
         approx_config.quant_dropout = adapter_args.quant_dropout
         approx_config.inplace_layernorm = adapter_args.inplace_layernorm
-        approx_config.random_sampling = adapter_args.random_sampling
 
     else:
         approx_config = None

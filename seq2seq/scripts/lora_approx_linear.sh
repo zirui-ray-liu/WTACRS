@@ -9,7 +9,7 @@ if [ ! -d ${folder_name} ] ; then
     mkdir -p ${folder_name}
 fi
 
-echo $1 $2 $3 $4 $5 $6
+echo $1 $2 $3 $4 $5 $6 $7
 
 gpuid=$1
 dataset=$2
@@ -17,17 +17,18 @@ model=$3
 level=$4
 sample_ratio=$5
 seed=$6
+lora_dim=$7
 
-exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}_LoRA
+exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}_LoRA_bfloat16
 
 config_file_name=configs/lora.json
 update_file_name=configs/approx_linear/approx_linear_${exp_tag}.json
 
-source scripts/env_lora_approx.sh
+source scripts/env_lora_approx_t5-large.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
 
-lora_dim=32
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
 
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
@@ -40,16 +41,16 @@ python scripts/update_scripts_for_given_input.py $update_file_name pad_to_max_le
 python scripts/update_scripts_for_given_input.py $update_file_name model_name_or_path str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name tokenizer_name str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name learning_rate float ${lr[$dataset]} $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name  #
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name 
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
 
 python scripts/update_scripts_for_given_input.py $update_file_name task_adapter_layers_encoder eval None $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name trainable_encoder_layers eval None $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name task_adapter_layers_decoder eval None $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name trainable_decoder_layers eval None
+python scripts/update_scripts_for_given_input.py $update_file_name trainable_decoder_layers eval None $update_file_name
 
 # Hyper-parameter for LoRA
-python scripts/update_scripts_for_given_input.py $update_file_name lora_dim int ${lora_dim}
+python scripts/update_scripts_for_given_input.py $update_file_name lora_dim int ${lora_dim} $update_file_name
 
 # Hyper-parameter for Approx
 python scripts/update_scripts_for_given_input.py $update_file_name level int $level $update_file_name
@@ -61,12 +62,17 @@ python scripts/update_scripts_for_given_input.py $update_file_name wo_sampling i
 python scripts/update_scripts_for_given_input.py $update_file_name q_sampling    int 1 $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name k_sampling    int 1 $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name v_sampling    int 1 $update_file_name
-# python scripts/update_scripts_for_given_input.py $update_file_name score_sampling   int 0 $update_file_name
-# python scripts/update_scripts_for_given_input.py $update_file_name attout_sampling   int 0 $update_file_name
+
+########### For Rebuttal BFloat16 Experiment
+# python scripts/update_scripts_for_given_input.py $update_file_name fp16    bool false $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name sampling_ratio float 0.5 $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name q_sampling    int 0 $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name k_sampling    int 0 $update_file_name
+# python scripts/update_scripts_for_given_input.py $update_file_name v_sampling    int 0 $update_file_name
 
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
 
-CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py  $update_file_name
+CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py $update_file_name
 
 

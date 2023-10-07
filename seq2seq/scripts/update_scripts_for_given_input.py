@@ -25,18 +25,20 @@ if attribute != "":
 
     attribute_type = sys.argv[3]
     attribute_value = sys.argv[4]
-    print(attribute_type, attribute, attribute_value)
 
     if attribute_type == "bool":
         attribute_value = str2bool(attribute_value)
+        
     elif attribute_type == "list":
         list_of_str = attribute_value.split(",")
         attribute_value = [int(x) for x in list_of_str]
+    
     else:
         attribute_value = eval(attribute_type)(attribute_value)
 
     d[attribute] = attribute_value
 
+    print(attribute, attribute_value)
 
 if attribute == "output_dir":
     print(d)

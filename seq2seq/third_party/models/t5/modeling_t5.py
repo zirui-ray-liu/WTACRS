@@ -441,7 +441,6 @@ class T5Attention(nn.Module):
             else:
                 self.v = LoRALinearController(self.d_model, self.inner_dim, config=lora_config, bias=False if not self.bitfit else True, approx_config=None)
 
-
         # if approx_config is not None:
         #     print(approx_config.attout_sampling)
 
@@ -479,7 +478,7 @@ class T5Attention(nn.Module):
                 self.dropout_op = QDropout(self.dropout) #
 
             self.use_approx = (approx_config.q_sampling or approx_config.v_sampling or approx_config.k_sampling or approx_config.o_sampling or approx_config.score_sampling or approx_config.attout_sampling)
-
+        
         # print(approx_config.score_sampling, self.score_matmul_op)
         # print(approx_config.attout_sampling, self.attout_matmul_op)
 

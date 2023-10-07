@@ -19,10 +19,12 @@ exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}
 
 config_file_name=configs/approx_linear.json
 update_file_name=configs/approx_linear/approx_linear_${exp_tag}.json
- 
+
 source scripts/env_approx.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
+
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
 
 # Hyper-parameter for Setting
 python scripts/update_scripts_for_given_input.py $update_file_name task_name str $dataset $update_file_name
@@ -42,8 +44,11 @@ python scripts/update_scripts_for_given_input.py $update_file_name seed int $see
 python scripts/update_scripts_for_given_input.py $update_file_name level int $level $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name sampling_ratio float $sample_ratio $update_file_name
 
+########### For Rebuttal Training Time Experiment
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int 1 $update_file_name
+
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
 
-CUDA_VISIBLE_DEVICES=$1 python run_seq2seq.py  $update_file_name
+CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py $update_file_name
 

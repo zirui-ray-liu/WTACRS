@@ -6,7 +6,7 @@ if [ ! -d ${folder_name} ] ; then
     mkdir -p ${folder_name}
 fi
 
-echo $1 $2 $3 $4 $5 $6
+echo $1 $2 $3 $4 $5 $6 $7
 
 gpuid=$1
 dataset=$2
@@ -14,8 +14,9 @@ model=$3
 level=$4
 sample_ratio=$5
 seed=$6
+per_device_train_batch_size=$7
 
-exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}
+exp_tag=${dataset}_${model}_level${level}_s${sample_ratio}_b${per_device_train_batch_size}
 
 config_file_name=configs/approx_linear.json
 update_file_name=configs/approx_linear/approx_linear_${exp_tag}.json
@@ -32,14 +33,17 @@ python scripts/update_scripts_for_given_input.py $update_file_name eval_dataset_
 python scripts/update_scripts_for_given_input.py $update_file_name test_dataset_name str $dataset $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name split_validation_test bool false $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name pad_to_max_length bool true $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name load_best_model_at_end bool false $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name evaluation_strategy str no $update_file_name
 
 # Hyper-parameter for Training
 python scripts/update_scripts_for_given_input.py $update_file_name model_name_or_path str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name tokenizer_name str $model $update_file_name
 python scripts/update_scripts_for_given_input.py $update_file_name learning_rate float ${lr[$dataset]} $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int ${num_epochs[$dataset]} $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name num_train_epochs int 1 $update_file_name # ${num_epochs[$dataset]}
 python scripts/update_scripts_for_given_input.py $update_file_name seed int $seed $update_file_name
-python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int 25 $update_file_name 
+# python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int 25 $update_file_name
+python scripts/update_scripts_for_given_input.py $update_file_name per_device_train_batch_size int $per_device_train_batch_size $update_file_name
 
 # Hyper-parameter for Approx
 python scripts/update_scripts_for_given_input.py $update_file_name level int $level $update_file_name
@@ -48,7 +52,7 @@ python scripts/update_scripts_for_given_input.py $update_file_name sampling_rati
 # Run Experiment
 python scripts/update_scripts_for_given_input.py $update_file_name output_dir  str outputs/full_finetuning_${exp_tag}_sd${seed} $update_file_name
 
-CUDA_VISIBLE_DEVICES=$gpuid accelerate launch --multi_gpu run_seq2seq.py  $update_file_name
-
+# CUDA_VISIBLE_DEVICES=$gpuid accelerate launch --multi_gpu run_seq2seq.py  $update_file_name
+CUDA_VISIBLE_DEVICES=$gpuid python run_seq2seq.py $update_file_name
 #  NCCL_DEBUG=INFO
 

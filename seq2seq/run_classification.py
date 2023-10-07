@@ -577,7 +577,7 @@ def main():
         raise NotImplementedError
 
     model, total_trainable_params_percent = modify_model_after_init(model, training_args, adapter_args)
-
+        
     # Initialize our Trainer
     trainer = Trainer(
         model=model,

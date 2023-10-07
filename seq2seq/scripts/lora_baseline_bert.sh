@@ -21,6 +21,8 @@ update_file_name=configs/baseline/baseline_${exp_tag}.json
 source scripts/env_lora_bert.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/
+
 lora_dim=32
 
 # Hyper-parameter for Setting

@@ -129,6 +129,10 @@ class ModelArguments:
             "with private models)."
         },
     )
+    bfloat16_dtype: bool = field(
+        default=False,
+        metadata={},
+    )
 
 
 @dataclass
@@ -277,7 +281,6 @@ def main():
     # We now keep distinct sets of args, for a cleaner separation of concerns.
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments,
                                AdapterTrainingArguments))
-
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.
@@ -306,7 +309,7 @@ def main():
 
     # Setup logging
 
-    # handler = logging.FileHandler(os.path.join(training_args.output_dir, "log.txt")) #
+    # handler = logging.FileHandler(os.path.join(training_args.output_dir, "log.txt")) # Added by Guanchu
     # logger.addHandler(handler)
 
     logging.basicConfig(
@@ -356,7 +359,6 @@ def main():
         revision=model_args.model_revision,
         use_auth_token=True if model_args.use_auth_token else None,
     )
-
     config.level = adapter_args.level
     config.train_task_adapters = adapter_args.train_task_adapters
     config.train_side_ladder = adapter_args.train_side_ladder
@@ -409,7 +411,6 @@ def main():
         approx_config.quant_relu   = adapter_args.quant_relu
         approx_config.quant_dropout   = adapter_args.quant_dropout
         approx_config.inplace_layernorm   = adapter_args.inplace_layernorm
-        approx_config.random_sampling   = adapter_args.random_sampling
 
     else:
         approx_config = None
@@ -658,7 +659,6 @@ def main():
     else:
         from seq2seq.third_party.models.t5.modeling_t5 import T5ForConditionalGeneration
 
-
     model = T5ForConditionalGeneration.from_pretrained(
         model_args.model_name_or_path,
         from_tf=bool(".ckpt" in model_args.model_name_or_path),
@@ -670,7 +670,7 @@ def main():
         lora_config=lora_config,
         approx_config=approx_config,
     )
-
+        
     # print(model)
 
     # model.resize_token_embeddings(len(tokenizer))
@@ -802,19 +802,18 @@ def main():
                     state = pruned_state_dict[infer_n]
 
                     p.data.copy_(state.data)
-
+        
                 else:
                     infer_n = n.split(".")
                     infer_n[1] = "block"
                     infer_n = ".".join(infer_n)
-                    print(n, infer_n)
 
                     state = pruned_state_dict[infer_n]
 
                     p.data.copy_(state)
 
                 print(n, infer_n)
-
+                
             if "final_side_layer_norm" in n:
                 infer_n = n.split("_")
                 infer_n.pop(1)
@@ -859,7 +858,8 @@ def main():
         raise NotImplementedError
 
     model, total_trainable_params_percent = modify_model_after_init(model, training_args, adapter_args)
-
+    # training_args.dataloader_drop_last=True
+    
     # Initialize our Trainer
     trainer = Seq2SeqTrainer(
         model=model,
@@ -870,9 +870,9 @@ def main():
         tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics if training_args.predict_with_generate else None,
-        evaluation_metrics = TASK_TO_METRICS[data_args.dataset_name[0]]
+        evaluation_metrics = TASK_TO_METRICS[data_args.dataset_name[0]],
     )
-
+    
     # Saves training config. 
     if trainer.is_world_process_zero():
        os.makedirs(training_args.output_dir, exist_ok=True)

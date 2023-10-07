@@ -27,6 +27,8 @@ source scripts/env_lora_approx_bert.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
 
+export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/
+
 lora_dim=32
 
 # Hyper-parameter for Setting

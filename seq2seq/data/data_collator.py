@@ -19,14 +19,11 @@ class DefaulDataCollator(DataCollatorForSeq2Seq):
         assert len(np.unique(samples)) == 1
 
    def __call__(self, features):
-        # print([d.keys() for d in features])
-
         tasks = [d.pop('task') for d in features]
         self.check_uniqueness(tasks)
         output = default_data_collator(features) # call the default_data_collator here
         output["task"] = tasks[0]
         return output
-
 
 @dataclass
 class TaskDataCollatorForSeq2Seq(DataCollatorForSeq2Seq):

@@ -75,7 +75,9 @@ class Seq2SeqTrainer(BaseSeq2SeqTrainer, BaseTrainer):
         #     if isinstance(n, (nn.Linear, T5LayerNorm)):
         #         n.register_forward_hook(save_activation('features.13'))
         has_labels = "labels" in inputs
+        
         inputs = self._prepare_inputs(inputs)
+                
         gen_kwargs = {
             "max_length": self._max_length if self._max_length is not None else self.model.config.max_length,
             "num_beams": self._num_beams if self._num_beams is not None else self.model.config.num_beams,
