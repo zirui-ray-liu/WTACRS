@@ -5,6 +5,8 @@ old
 outputs
 plot
 runs
+seq2seq/32
+seq2seq/None
 seq2seq/configs/approx_linear
 seq2seq/configs/baseline
 seq2seq/outputs/
