@@ -22,7 +22,7 @@
 "task_name": "rte",
 "eval_dataset_name": "rte",
 "test_dataset_name": "rte",
-"num_train_epochs": 40,
+"num_train_epochs": 1,
 "dataset_config_name": [
 "en"
 ],

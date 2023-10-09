@@ -29,8 +29,6 @@ source scripts/env_lora_approx.sh
 python scripts/update_scripts_for_given_input.py $config_file_name "" $update_file_name
 bash scripts/level_setup.sh $level $update_file_name
 
-export TRANSFORMERS_CACHE=/mnt/rstor/CSE_CSDS_VXC204/sxz517/.cache/ 
-
 # encoder_list="6,7,8,9,10,11"
 # decoder_list="6,7,8,9,10,11"
 

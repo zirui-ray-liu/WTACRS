@@ -7,3 +7,7 @@ plot
 runs
 seq2seq/approxlinear/other_version
 seq2seq/approxlinear/py_script
+*.idea
+.DS_Store
+*.so
+*.egg-info

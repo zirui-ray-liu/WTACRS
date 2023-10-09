@@ -1,16 +1,14 @@
-"""Install Ladder Side-Tuning."""
-import os 
+"""Install WTACRS."""
 import setuptools
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
-#os.environ['TORCH_CUDA_ARCH_LIST']="3.5;3.7;6.1;7.0;7.5;8.6+PTX"
 
 def setup_package():
   long_description = "seq2seq"
   setuptools.setup(
       name='seq2seq',
       version='0.0.1',
-      description='Ladder Side-Tuning',
+      description='WTACRS',
       long_description=long_description,
       long_description_content_type='text/markdown',
       license='MIT License',
@@ -36,12 +34,6 @@ def setup_package():
             ],
             extra_compile_args={'nvcc': ['--expt-extended-lambda']}
         ),
-        # CUDAExtension('seq2seq.inplace_gelu.gelu',
-        #     sources=[
-        #     'seq2seq/inplace_gelu/gelu.cpp',
-        #     'seq2seq/inplace_gelu/gelu_kernel.cu',
-        #     ]
-        # ),
         CUDAExtension('seq2seq.projections.fwh_cuda',
             sources=[
             'seq2seq/projections/fwh_cuda/fwh_cpp.cpp',
@@ -55,20 +47,6 @@ def setup_package():
             ],
             extra_compile_args=['-O3']
         ),
-        # CUDAExtension('seq2seq.backend.softmax_quant.quantization',
-        #     sources=[
-        #     'seq2seq/backend/softmax_quant/quantization.cc',
-        #     'seq2seq/backend/softmax_quant/quantization_cuda_kernel.cu'
-        #     ],
-        #     extra_compile_args={'nvcc': ['--expt-extended-lambda']}
-        # ),
-        # CUDAExtension('seq2seq.backend.softmax_quant.minimax',
-        #     sources=[
-        #     'seq2seq/backend/softmax_quant/minimax.cc',
-        #     'seq2seq/backend/softmax_quant/minimax_cuda_kernel.cu'
-        #     ],
-        #     extra_compile_args={'nvcc': ['--expt-extended-lambda']}
-        # ),
       ],
       cmdclass={"build_ext": BuildExtension},
       install_requires=[

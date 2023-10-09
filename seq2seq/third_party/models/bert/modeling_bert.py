@@ -58,7 +58,7 @@ from transformers import BertConfig
 
 from seq2seq.lora import LoRALinearController
 from seq2seq.approxlinear import ApproxLinear
-from seq2seq.approxlinear import ApproxLinear, Approxmatmul_4D, ApproxSoftmax
+from seq2seq.approxlinear import ApproxLinear, Approxmatmul_4D
 from seq2seq.bit_act_op import QDropout, QReLU
 
 logger = logging.get_logger(__name__)
@@ -276,9 +276,6 @@ class BertSelfAttention(nn.Module):
 
             if approx_config.attout_sampling:
                 self.attout_matmul_op = Approxmatmul_4D(config=approx_config, batch_dim_use_same_indices=False)
-
-            if approx_config.softmax_prune_ratio > 0:
-                self.softmax_op = ApproxSoftmax(config=approx_config)
 
             if approx_config.quant_dropout:
                 self.dropout = QDropout(config.attention_probs_dropout_prob)  #
