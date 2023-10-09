@@ -5,6 +5,8 @@ old
 outputs
 plot
 runs
+seq2seq/configs/approx_linear
+seq2seq/configs/baseline
 seq2seq/outputs/
 seq2seq/approxlinear/other_version
 seq2seq/approxlinear/py_script
