@@ -4,9 +4,8 @@ This is the official codes for Winner-Take-All Column Row Sampling for Memory Ef
 
 # Setup 
 ```bash
-conda create -n approx 
+conda create -n approx python=3.9
 conda activate approx
-python=3.9
 pip install torch==2.0.0
 pip install -e .
 pip install protobuf==3.20.3
