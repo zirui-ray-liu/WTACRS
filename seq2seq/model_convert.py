@@ -19,9 +19,5 @@ def transformer_convert(model, config, tokenizer, model_args, adapter_config=Non
             lora_config=lora_config,
             approx_config=approx_config,
         )
-    
-    print(model)
-    import pdb
-    pdb.set_trace()
 
     return model, config, tokenizer

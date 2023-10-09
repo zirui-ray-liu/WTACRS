@@ -7,7 +7,7 @@ level=2
 # do
 #     for seed in 0 1 2;
 #     do
-#     bash scripts/approx_linear.sh $GPUID $dataset $model $level $sample_ratio $seed
+#     bash scripts/lora_approx_linear.sh $GPUID $dataset $model $level $sample_ratio $seed 32
 #     done
 # done
 
@@ -17,6 +17,6 @@ for dataset in "rte" "mrpc" "stsb" "cola" "sst2" "qnli" "qqp" "mnli";
 do
     for seed in 0 1 2;
     do
-    bash scripts/approx_linear_bert.sh $GPUID $dataset $model $level $sample_ratio $seed
+    bash scripts/lora_approx_linear_bert.sh $GPUID $dataset $model $level $sample_ratio $seed
     done
 done

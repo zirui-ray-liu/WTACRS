@@ -26,28 +26,28 @@ def setup_package():
           'Programming Language :: Python :: 3.7.10',
       ],
       keywords='text nlp machinelearning',
-      ext_modules=[
-        CUDAExtension('seq2seq.backend.bit_relu_dropout',
-            sources=[
-            'seq2seq/backend/bit_relu_dropout/quantization.cpp',
-            'seq2seq/backend/bit_relu_dropout/quantization_cuda_kernel.cu',
-            ],
-            extra_compile_args={'nvcc': ['--expt-extended-lambda']}
-        ),
-        CUDAExtension('seq2seq.projections.fwh_cuda',
-            sources=[
-            'seq2seq/projections/fwh_cuda/fwh_cpp.cpp',
-            'seq2seq/projections/fwh_cuda/fwh_cu.cu',
-            ]
-        ),
-        CUDAExtension('seq2seq.backend.inplace_layernorm',
-            sources=[
-            'seq2seq/backend/inplace_layernorm/inplace_layernorm.cpp',
-            'seq2seq/backend/inplace_layernorm/inplace_layernorm_kernel.cu',
-            ],
-            extra_compile_args=['-O3']
-        ),
-      ],
+      # ext_modules=[
+      #   CUDAExtension('seq2seq.backend.bit_relu_dropout',
+      #       sources=[
+      #       'seq2seq/backend/bit_relu_dropout/quantization.cpp',
+      #       'seq2seq/backend/bit_relu_dropout/quantization_cuda_kernel.cu',
+      #       ],
+      #       extra_compile_args={'nvcc': ['--expt-extended-lambda']}
+      #   ),
+      #   CUDAExtension('seq2seq.projections.fwh_cuda',
+      #       sources=[
+      #       'seq2seq/projections/fwh_cuda/fwh_cpp.cpp',
+      #       'seq2seq/projections/fwh_cuda/fwh_cu.cu',
+      #       ]
+      #   ),
+      #   CUDAExtension('seq2seq.backend.inplace_layernorm',
+      #       sources=[
+      #       'seq2seq/backend/inplace_layernorm/inplace_layernorm.cpp',
+      #       'seq2seq/backend/inplace_layernorm/inplace_layernorm_kernel.cu',
+      #       ],
+      #       extra_compile_args=['-O3']
+      #   ),
+      # ],
       cmdclass={"build_ext": BuildExtension},
       install_requires=[
         'datasets==1.6.2',
