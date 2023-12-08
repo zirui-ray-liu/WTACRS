@@ -40,17 +40,17 @@ bash scripts/lora_exp.sh
 
 Accuracy of WTA-CRS on the GLUE datasets.
 <div align=center>
-<img width="600" height="200" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_accuracy.png">
+<img width="700" height="300" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_accuracy.png">
 </div>
 
 The memory footprint of WTA-CRS.
 <div align=center>
-<img width="500" height="100" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_mem.png">
+<img width="800" height="150" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_mem.png">
 </div>
 
 Throughput of finetuning using WTA-CRS.
 <div align=center>
-<img width="350" height="200" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_throughput.png">
+<img width="500" height="300" src="https://github.com/zirui-ray-liu/WTACRS/blob/main/figure/wta_throughput.png">
 </div>
 
 ## Acknowledgment
